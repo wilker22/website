@@ -28,6 +28,9 @@
         <!-- App Css-->
         <link href="{{asset('backend/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
 
+        <link href="{{ asset('backend/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
     </head>
 
     <body data-topbar="dark">
@@ -96,6 +99,25 @@
 
         <!-- App js -->
         <script src="{{asset('backend/assets/js/app.js')}}"></script>
+        <script>
+        @if(Session::has('message'))
+            var type = "{{ Session::get('alert-type','info') }}"
+            switch(type){
+                case 'info':
+                toastr.info(" {{ Session::get('message') }} ");
+                break;
+                case 'success':
+                toastr.success(" {{ Session::get('message') }} ");
+                break;
+                case 'warning':
+                toastr.warning(" {{ Session::get('message') }} ");
+                break;
+                case 'error':
+                toastr.error(" {{ Session::get('message') }} ");
+                break; 
+            }
+            @endif 
+        </script>
     </body>
 
 </html>

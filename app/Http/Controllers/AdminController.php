@@ -26,6 +26,7 @@ class AdminController extends Controller
         return view('admin.admin_profile_view', compact('adminData'));
     }
 
+    
     public function editProfile()
     {
         $id = Auth::user()->id;
@@ -50,7 +51,12 @@ class AdminController extends Controller
         }
         $data->save();
 
-        return redirect()->route('admin.profile');
+        $notificantion = [
+            'message' => 'Perfil de Administrador atualizado com sucesso!', 
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->route('admin.profile')->with($notificantion);
 
     }// End Method
 }
