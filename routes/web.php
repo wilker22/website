@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\AboutController;
+use App\Http\Controllers\Home\PortfolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +37,6 @@ Route::controller(HomeSliderController::class)->group(function(){
     Route::get('/home/slide', 'homeSlider')->name('home.slide');
     Route::post('/update/slider', 'updateSlider')->name('update.slider');
     
-    
-    
 });
 
 //About Page Routes
@@ -52,6 +51,13 @@ Route::controller(AboutController::class)->group(function(){
     Route::post('/update/multi/image', 'UpdateMultiImage')->name('update.multi.image');
     Route::get('/delete/multi/image/{id}', 'DeleteMultiImage')->name('delete.multi.image');
        
+    
+});
+
+//Portfolio Routes
+Route::controller(PortfolioController::class)->group(function(){
+    Route::get('/all/portfolio', 'allPortfolio')->name('all.portfolio');
+    
     
 });
 
