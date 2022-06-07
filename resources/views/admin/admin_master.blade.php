@@ -99,12 +99,7 @@
         <script src="{{asset('backend/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
 
         <script src="{{asset('backend/assets/js/pages/dashboard.init.js')}}"></script>
-
-         <!--tinymce js-->
-         <script src="{{asset('backend/assets/libs/tinymce/tinymce.min.js')}}"></script>
-
-        <!-- init js -->
-        <script src="{{asset('backend/assets/js/pages/form-editor.init.js')}}"></script>
+       
 
         <!-- App js -->
         <script src="{{asset('backend/assets/js/app.js')}}"></script>
@@ -150,6 +145,13 @@
         }
         @endif 
         </script>
+
+
+        <!--tinymce js-->
+         <script src="{{asset('backend/assets/libs/tinymce/tinymce.min.js')}}"></script>
+
+        <!-- init js -->
+        <script src="{{asset('backend/assets/js/pages/form-editor.init.js')}}"></script>
     </body>
 
 </html>

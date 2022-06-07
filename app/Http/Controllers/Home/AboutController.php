@@ -11,8 +11,8 @@ class AboutController extends Controller
 {
     public function aboutPage()
     {
-        $aboutPage =  About::find(1);
-        return view('admin.about_page.about_page_all', compact('aboutPage'));
+        $aboutpage =  About::find(1);
+        return view('admin.about_page.about_page_all', compact('aboutpage'));
     }
 
     public function updateAbout(Request $request){
@@ -60,4 +60,10 @@ class AboutController extends Controller
         } // end Else
 
      } // End Method 
+
+     public function homeAbout()
+     {
+        $aboutpage =  About::find(1);
+         return view('frontend.about_page', compact('aboutpage'));
+     }
 }
