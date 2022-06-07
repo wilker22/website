@@ -47,6 +47,10 @@ Route::controller(AboutController::class)->group(function(){
     Route::get('/about', 'homeAbout')->name('home.about');
     Route::get('/about/multi/image', 'aboutMultiImage')->name('about.multi.image');
     Route::post('/store/multi/image', 'storeMultiImage')->name('store.multi.image');
+    Route::post('/all/multi/image', 'allMultiImage')->name('all.multi.image');
+    Route::get('/edit/multi/image/{id}', 'EditMultiImage')->name('edit.multi.image');
+    Route::post('/update/multi/image', 'UpdateMultiImage')->name('update.multi.image');
+    Route::get('/delete/multi/image/{id}', 'DeleteMultiImage')->name('delete.multi.image');
        
     
 });
