@@ -107,7 +107,7 @@ class BlogController extends Controller
 
 
 
-public function deleteBlog($id){
+    public function deleteBlog($id){
 
        $blogs = Blog::findOrFail($id);
        $img = $blogs->blog_image;
@@ -123,6 +123,32 @@ public function deleteBlog($id){
        return redirect()->back()->with($notification);       
 
     }// End Method 
+
+    public function blogDetails($id)
+    {
+        $allBlogs = Blog::latest()->limit(5)->get();
+        $blogs = Blog::findOrFail($id);
+        $categories = BlogCategory::orderBy('blog_category','ASC')->get();
+        return view('frontend.blog_details', compact('blogs', 'allBlogs','categories'));
+    }
+
+    public function categoryBlog($id)
+    {
+        $blogPost = Blog::where('blog_category_id', $id)->orderBy('id', 'DESC')->get();
+        $allBlogs = Blog::latest()->limit(5)->get();
+        $categories = BlogCategory::orderBy('blog_category','ASC')->get();
+        $categoryname = BlogCategory::findOrFail($id);
+        return view('frontend.cat_blog_details',compact('blogPost','allBlogs','categories','categoryname'));
+
+    }
+
+    public function HomeBlog(){
+
+        $categories = BlogCategory::orderBy('blog_category','ASC')->get();
+        $allblogs = Blog::latest()->get();
+        return view('frontend.blog',compact('allblogs','categories'));
+
+     } // End Method 
 
 
 
