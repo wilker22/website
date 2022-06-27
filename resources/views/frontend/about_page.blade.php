@@ -2,6 +2,10 @@
 
 @section('main')
 
+@section('title')
+About | WTech Website
+@endsection
+
 
 
         <!-- main-area -->
